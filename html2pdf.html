@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html to Pdf</title>
+</head>
+<body>
+
+    <h1>This should convert to a pdf.</h1>
+
+    <div id="content" style="color:blue; background-color:rgb(237, 235, 226);">
+       <h2> This should be a pdf.</h2>
+    </div>
+    
+    <button id="download">
+        This should trigger a pdf download.
+    </button>
+
+    <!--Include html2pdf library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js">
+    </script>
+
+    <script>
+        
+        
+        const DB = document.getElementById('download');
+        const PDF = document.getElementById('content');
+
+        DB.addEventListener('click', async function (){
+            const filename = 'test.pdf';
+
+            try {
+                const opt = {
+                    margin: 1,
+                    filename: filename,
+                    image: { type: 'jpeg', quality: 0.98},
+                    html2canvas: { scale:2 },
+                    jdPDF: {
+                        unit: 'in', 
+                        format: 'letter',
+                        orientation: 'portrait'
+                    }
+                };
+                await html2pdf().set(opt).from(content).save();
+
+            } catch (error) {
+                console.error('Error:', error.message);
+            }
+        });
+        
+    </script>
+</body>
+</html>
