@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button States</title>
+</head>
+<body>
+    <button id="d" onclick="transit()">backword</button>
+    <script>
+        var n=0;
+        function transit() {
+            if (n == 0){
+                document.getElementById("d").innerHTML = "forward";
+                document.getElementById("d").style.backgroundColor = "blue";
+                n++;
+            }
+            else if (n == 1){
+                document.getElementById("d").innerHTML = "backword";
+                document.getElementById("d").style.backgroundColor = "red";
+                n--;
+            }
+            
+            console.log(n);
+            
+
+
+        }
+    </script>
+
+    
+</body>
+</html>
