@@ -15,16 +15,22 @@
     <script type="text/jsx">
         const app = document.getElementById('app');
 
-        function Header({title}) {
-            console.log(title);
-            return <h1>{title}</h1>;
+        function Header(props) {
+            console.log(props);
+            return <h1>{props.title}</h1>;
+        }
+
+        function Footer({location}) {
+            console.log(location);
+            return <h2>Made in {location ? location :  'Somewhere'}</h2>;
         }
 
         function HomePage() {
-            return <div>
+            return (<div>
                 <Header title="killer be" />
                 <h3>Hello World</h3>
-            </div>
+                <Footer location="UG" />
+            </div>);
         }
 
         const root = ReactDOM.createRoot(app);
