@@ -25,10 +25,39 @@
             return <h2>Made in {location ? location :  'Somewhere'}</h2>;
         }
 
-        function HomePage() {
+        function Names() {
+            const names = ['Precious', 'Nathaniel', 'Rebekah'];
+            return (
+                <ul> 
+                    {names.map((name) => (
+                        <li>{name}</li>
+                    ))}
+                </ul>
+            )
+        }
+
+
+
+
+
+        function Like() {
+
+            return (<button onClick={handleClick}>like</button>)
+        }
+
+        function HomePage(x) {
+            const [likes, setLikes] = React.useState(0);
+
+            function handleClick() {
+                setLikes(likes+1);
+            }
+
             return (<div>
                 <Header title="killer be" />
                 <h3>Hello World</h3>
+                <h3>Counter = {likes}</h3>
+                <Names />
+                <button onClick={handleClick}>like</button>
                 <Footer location="UG" />
             </div>);
         }
